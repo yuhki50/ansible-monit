@@ -1,2 +1,6 @@
 ---
-# vars file for monit
+monitrc_conf: /usr/local/etc/monitrc
+monit_includes: /usr/local/etc/monit.d
+monit_bin: /usr/local/bin/monit
+launchdaemons_plist: /Library/LaunchDaemons
+monit_facts_d: /etc/ansible/facts.d

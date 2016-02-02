@@ -1,2 +1,18 @@
 ---
-# handlers file for monit
+#- name: restart monit
+#  service: name=monit state=restarted
+
+- name: restart monit
+  become: yes
+  command: "launchctl unload -w {{ launchdaemons_plist }}/com.mmonit.monit.plist"
+  notify: unload monit
+
+- name: unload monit
+  become: yes
+  command: "monit quit"
+  notify: load monit
+
+- name: load monit
+  become: yes
+  command: "launchctl load -w {{ launchdaemons_plist }}/com.mmonit.monit.plist"
+
