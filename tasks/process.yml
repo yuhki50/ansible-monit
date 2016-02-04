@@ -1,0 +1,8 @@
+---
+- name: process - Check monit process
+  command: pgrep monit
+  register: monit_process_check
+  changed_when: monit_process_check.stdout_lines | length <= 0
+  failed_when: false  # 対象のプロセスがない場合、エラーになるため
+  notify: restart monit
+

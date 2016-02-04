@@ -1,0 +1,6 @@
+---
+- name: package - Install package
+  homebrew:
+    name: monit
+    #update_homebrew: yes
+
