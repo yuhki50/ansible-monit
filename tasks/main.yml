@@ -1,0 +1,15 @@
+---
+- include: package.yml
+  tags: monit_package
+
+- include: config.yml
+  tags: monit_config
+
+- include: monitors.yml
+  tags: monit_monitors
+
+- include: process.yml
+  tags: monit_process
+
+- include: facts.yml
+  tags: monit_facts
